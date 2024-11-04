@@ -4,8 +4,8 @@
 #
 # TODO 0: Add your information below for Programmer & Date Created.                                                                             
 # PROGRAMMER: Waed Sammar
-# DATE CREATED: 31/Oct                                 
-# REVISED DATE: 
+# DATE CREATED: 31/10/2024                                 
+# REVISED DATE: 4/11/2024
 # PURPOSE: Classifies pet images using a pretrained CNN model, compares these
 #          classifications to the true identity of the pets in the images, and
 #          summarizes how well the CNN performed on the image classification task. 

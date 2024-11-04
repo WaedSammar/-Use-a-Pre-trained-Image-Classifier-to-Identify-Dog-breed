@@ -71,4 +71,4 @@ Classifier Label?: collie
 Pet Image Label?: dog
 Classifier Label?: bluetick
 
-** Total Elapsed Runtime: 0:0:1
+** Total Elapsed Runtime: 0:0:0

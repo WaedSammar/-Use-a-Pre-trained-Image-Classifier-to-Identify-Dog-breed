@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/print_results.py
 #                                                                             
-# PROGRAMMER: 
-# DATE CREATED:
-# REVISED DATE: 
+# PROGRAMMER: Waed Sammar 
+# DATE CREATED: 31/10/2024
+# REVISED DATE: 4/11/2024
 # PURPOSE: Create a function print_results that prints the results statistics
 #          from the results statistics dictionary (results_stats_dic). It 
 #          should also allow the user to be able to print out cases of misclassified
@@ -67,17 +67,21 @@ def print_results(results_dic, results_stats_dic, model,
     print("{:20}: {:3d}".format('N Images', results_stats_dic['n_images']))
     print("{:20}: {:3d}".format('N Dog Images', results_stats_dic['n_dogs_img']))
 
-    for key in results_stats_dic:
-        if key[0] == 'p':
-                print('{}: {}'.format(key, results_stats_dic[key]))
+    for key, value in results_stats_dic.items():
+        if key.startswith('p'):
+                print(f'{key}: {value}')
+
+# Check misclassified dogs
     if print_incorrect_dogs and (results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs'] != results_stats_dic['n_images']):
         print('\nMISCLASSIFIED DOGS:')
-    for key in results_dic:
-        if sum(results_dic[key][3:]) == 1:
-                print('Pet Image Label?: {}'.format(results_dic[key][0]))
-                print('Classifier Label?: {}'.format(results_dic[key][1]))            
+        for key, value in results_dic.items():
+                if sum(value[3:]) == 1:
+                        print('Pet Image Label?: {}'.format(value[0]))
+                        print('Classifier Label?: {}'.format(value[1]))
+
+# Checkincorrect breed classifications
     if print_incorrect_breed and (results_stats_dic['n_correct_dogs'] != results_stats_dic['n_correct_breed']):
-        for key in results_dic:
-                if sum(results_dic[key][3:]) == 2 and results_dic[key][2] == 0:
-                        print('Pet Image Label?: {}'.format(results_dic[key][0]))
-                        print('Classifier Label?: {}'.format(results_dic[key][1]))
+        for key, value in results_dic.items():
+                if sum(value[3:]) == 2 and value[2] == 0:
+                        print('Pet Image Label?: {}'.format(value[0]))
+                        print('Classifier Label?: {}'.format(value[1]))
